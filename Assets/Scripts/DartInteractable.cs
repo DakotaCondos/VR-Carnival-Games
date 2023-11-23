@@ -10,14 +10,30 @@ public class DartInteractable : XRGrabInteractable
     private bool _isGrabbed = false;
     private Rigidbody _grabbedRigidbody;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _grabSound; // Sound when the dart is grabbed
+    [SerializeField] private AudioClip _releaseSound; // Sound when the dart is released
+    [SerializeField] private AudioClip _hitSound; // Sound when the dart hits a target
+    [SerializeField] float _minVelocityAudio = 0.25f;
+    [SerializeField] float _maxVelocityAudio = 2f;
+    [SerializeField] float _grabSoundVolume = 0.1f;
+    private AudioSource _audioSource;
+    private VelocityEstimator _velocityEstimator;
 
     protected override void Awake()
     {
         base.Awake();
-        _grabbedRigidbody = GetComponent<Rigidbody>();
-        if (_grabbedRigidbody == null)
+        if (!TryGetComponent(out _grabbedRigidbody))
         {
             Debug.LogWarning("Rigidbody not found");
+        }
+        if (!TryGetComponent(out _audioSource))
+        {
+            Debug.LogWarning("Audio source not found");
+        }
+        if (!TryGetComponent(out _velocityEstimator))
+        {
+            Debug.LogWarning("Velocity Estimator not found");
         }
     }
 
@@ -53,6 +69,7 @@ public class DartInteractable : XRGrabInteractable
         base.OnSelectEntered(args);
         _isGrabbed = true;
         _grabbedRigidbody.useGravity = true;
+        PlaySound(_grabSound, _grabSoundVolume);
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
@@ -60,13 +77,57 @@ public class DartInteractable : XRGrabInteractable
         base.OnSelectExited(args);
         _isGrabbed = false;
         _grabbedRigidbody.useGravity = true;
+        PlaySound(_releaseSound, true);
     }
     private void HandleTriggerEvent(GameObject gameObject)
     {
         if (_isGrabbed) { return; }
-        Debug.Log(gameObject.name);
+
+        Debug.Log(gameObject.name); // DEBUG ONLY#########################################
+
+        AudioClip clip = _hitSound;
+        if (gameObject.TryGetComponent(out SharedAudioEffects effect))
+        {
+            //play specific sound
+            if (effect.ImpactSound != null) { clip = effect.ImpactSound; }
+        }
+
+        PlaySound(clip, true);
+
         _grabbedRigidbody.velocity = Vector3.zero;
         _grabbedRigidbody.angularVelocity = Vector3.zero;
         _grabbedRigidbody.useGravity = false;
+    }
+    private void PlaySound(AudioClip clip, bool useVelocity, float setVolume)
+    {
+        if (clip == null)
+        {
+            Debug.LogWarning("Missing Audio Clip");
+        }
+
+        if (useVelocity)
+        {
+            float velocity = _velocityEstimator.GetVelocityEstimate().magnitude;
+            float calculatedVolume = Mathf.InverseLerp(_minVelocityAudio, _maxVelocityAudio, velocity);
+            _audioSource.PlayOneShot(clip, calculatedVolume);
+            Debug.Log($"Velovity: {velocity}, Volume: {calculatedVolume}");
+            return;
+        }
+
+        if (setVolume != 0)
+        {
+            _audioSource.PlayOneShot(clip, setVolume);
+            return;
+        }
+
+        _audioSource.PlayOneShot(clip);
+    }
+    private void PlaySound(AudioClip clip, bool useVelocity)
+    {
+        PlaySound(clip, useVelocity, 0);
+    }
+    private void PlaySound(AudioClip clip, float setVolume)
+    {
+        PlaySound(clip, false, setVolume);
     }
 }
