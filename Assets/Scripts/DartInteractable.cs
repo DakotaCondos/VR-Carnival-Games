@@ -83,7 +83,11 @@ public class DartInteractable : XRGrabInteractable
     {
         if (_isGrabbed) { return; }
 
-        Debug.Log(gameObject.name); // DEBUG ONLY#########################################
+        if (gameObject.TryGetComponent(out Collider collider))
+        {
+            //ignore trigger colliders
+            if (collider.isTrigger) { return; }
+        }
 
         AudioClip clip = _hitSound;
         if (gameObject.TryGetComponent(out SharedAudioEffects effect))
@@ -122,11 +126,11 @@ public class DartInteractable : XRGrabInteractable
 
         _audioSource.PlayOneShot(clip);
     }
-    private void PlaySound(AudioClip clip, bool useVelocity)
+    public void PlaySound(AudioClip clip, bool useVelocity)
     {
         PlaySound(clip, useVelocity, 0);
     }
-    private void PlaySound(AudioClip clip, float setVolume)
+    public void PlaySound(AudioClip clip, float setVolume)
     {
         PlaySound(clip, false, setVolume);
     }
