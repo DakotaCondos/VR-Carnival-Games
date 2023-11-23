@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerCollider: {fileID: 8015702290727501574}
+  triggerTag: DartTip
 --- !u!1001 &823782045946320835
 PrefabInstance:
   m_ObjectHideFlags: 0

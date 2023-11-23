@@ -5,9 +5,11 @@ public class Balloon : MonoBehaviour
     [SerializeField] private AudioClip _popSound;
     [SerializeField] private Material[] _PossibleMaterials;
     [SerializeField] private Material _balloonMaterial;
+    [SerializeField] private bool _enablePopWhileGrabbed = true;
     private Collider _collider;
     private ParticleSystem _particleSystem;
     private MeshRenderer _meshRenderer;
+    private bool _isPopped = false;
 
     private void Awake()
     {
@@ -28,13 +30,19 @@ public class Balloon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out DartInteractable dart))
-        {
-            print("DART HIT BALLOON");
-            dart.PlaySound(_popSound, true);
-            _particleSystem.Play();
+        if (_isPopped) { return; }
 
-            RandomizeColor();
+        if (other.gameObject.TryGetComponent(out TriggerNotifier triggerNotifier))
+        {
+            if (triggerNotifier.TriggerTag == "DartTip")
+            {
+                DartInteractable dart = other.gameObject.GetComponentInParent<DartInteractable>();
+                dart.PlaySound(_popSound, true);
+                _particleSystem.Play();
+                _isPopped = true;
+                _meshRenderer.enabled = false;
+                _collider.enabled = false;
+            }
         }
     }
 }

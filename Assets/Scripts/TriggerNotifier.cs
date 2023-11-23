@@ -6,6 +6,9 @@ public class TriggerNotifier : MonoBehaviour
     public delegate void TriggerEvent(GameObject gameObject);
 
     [SerializeField] private Collider _triggerCollider;
+    [SerializeField] private string triggerTag = "";
+    public string TriggerTag { get => triggerTag; }
+
 
     // Create an event based on the delegate
     public event TriggerEvent OnTriggerEvent;
