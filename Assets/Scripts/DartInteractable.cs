@@ -8,6 +8,7 @@ public class DartInteractable : XRGrabInteractable
 {
     [SerializeField] private TriggerNotifier _triggerNotifier;
     private bool _isGrabbed = false;
+    public bool IsGrabbed { get => _isGrabbed; }
     private Rigidbody _grabbedRigidbody;
 
     [Header("Audio")]
@@ -19,6 +20,7 @@ public class DartInteractable : XRGrabInteractable
     [SerializeField] float _grabSoundVolume = 0.1f;
     private AudioSource _audioSource;
     private VelocityEstimator _velocityEstimator;
+
 
     protected override void Awake()
     {
@@ -39,7 +41,7 @@ public class DartInteractable : XRGrabInteractable
 
     private void Update()
     {
-        if (_isGrabbed) { return; }
+        if (IsGrabbed) { return; }
         if (!_grabbedRigidbody.useGravity && _grabbedRigidbody.velocity.magnitude > Mathf.Epsilon)
         {
             _grabbedRigidbody.useGravity = true;
@@ -114,7 +116,6 @@ public class DartInteractable : XRGrabInteractable
             float velocity = _velocityEstimator.GetVelocityEstimate().magnitude;
             float calculatedVolume = Mathf.InverseLerp(_minVelocityAudio, _maxVelocityAudio, velocity);
             _audioSource.PlayOneShot(clip, calculatedVolume);
-            Debug.Log($"Velovity: {velocity}, Volume: {calculatedVolume}");
             return;
         }
 

@@ -6,6 +6,7 @@ public class Balloon : MonoBehaviour
     [SerializeField] private Material[] _PossibleMaterials;
     [SerializeField] private Material _balloonMaterial;
     [SerializeField] private bool _enablePopWhileGrabbed = true;
+    [SerializeField] float _balloonPopVolume = 0.75f;
     private Collider _collider;
     private ParticleSystem _particleSystem;
     private MeshRenderer _meshRenderer;
@@ -37,7 +38,8 @@ public class Balloon : MonoBehaviour
             if (triggerNotifier.TriggerTag == "DartTip")
             {
                 DartInteractable dart = other.gameObject.GetComponentInParent<DartInteractable>();
-                dart.PlaySound(_popSound, true);
+                if (dart.IsGrabbed && !_enablePopWhileGrabbed) { return; }
+                dart.PlaySound(_popSound, _balloonPopVolume);
                 _particleSystem.Play();
                 _isPopped = true;
                 _meshRenderer.enabled = false;
