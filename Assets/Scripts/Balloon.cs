@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Balloon : MonoBehaviour
@@ -7,10 +8,14 @@ public class Balloon : MonoBehaviour
     [SerializeField] private Material _balloonMaterial;
     [SerializeField] private bool _enablePopWhileGrabbed = true;
     [SerializeField] float _balloonPopVolume = 0.75f;
+
+    public event Action OnBalloonPop;
+
     private Collider _collider;
     private ParticleSystem _particleSystem;
     private MeshRenderer _meshRenderer;
     private bool _isPopped = false;
+
 
     private void Awake()
     {
@@ -24,9 +29,17 @@ public class Balloon : MonoBehaviour
 
     private void RandomizeColor()
     {
-        _balloonMaterial = _PossibleMaterials[Random.Range(0, _PossibleMaterials.Length)];
+        _balloonMaterial = _PossibleMaterials[UnityEngine.Random.Range(0, _PossibleMaterials.Length)];
         _meshRenderer.material = _balloonMaterial;
         _particleSystem.GetComponent<ParticleSystemRenderer>().material = _balloonMaterial;
+    }
+
+    public void ResetBalloon()
+    {
+        _isPopped = false;
+        _meshRenderer.enabled = true;
+        _collider.enabled = true;
+        RandomizeColor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +57,8 @@ public class Balloon : MonoBehaviour
                 _isPopped = true;
                 _meshRenderer.enabled = false;
                 _collider.enabled = false;
+
+                OnBalloonPop?.Invoke();
             }
         }
     }

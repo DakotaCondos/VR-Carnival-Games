@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25efb2bb177848643bd9eeb0aead41fc, type: 3}
+  m_Name: ScoreTier 4
+  m_EditorClassIdentifier: 
+  minimumScore: 5
+  messages:
+  - Fantastic! You're really showing those balloons who's boss.
+  - Excellent skills! You're on your way to becoming a balloon-popping master.
+  - Wow, you're doing great! Your aim is spot on. Keep it up!
+  - Superb popping! You've almost mastered this game. Keep aiming high!
+  - Amazing work! Just a few more balloons and you'll reach the top tier.

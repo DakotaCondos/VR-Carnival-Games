@@ -1,24 +1,41 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BalloonPopGame : MonoBehaviour
 {
     [SerializeField] private GameObject _balloonPrefab;
-    [SerializeField] private int _startingDarts = 5;
-    [SerializeField] private int score = 0;
-    [SerializeField] private int dartsRemaining;
-    [SerializeField] DartSpawner _dartSpawner;
+    [SerializeField] private int _startingDarts = 10;
+    [SerializeField] private int _score = 0;
+    [SerializeField] private int _dartsRemaining;
+    [SerializeField] private DartSpawner _dartSpawner;
     [SerializeField] private List<Balloon> _balloonList = new();
     [SerializeField] private VirtualGrid _virtualGrid;
-    [SerializeField] Transform _baloonGridTransform;
-    [SerializeField] Quaternion _baloonRotation = Quaternion.identity;
+    [SerializeField] private Transform _baloonGridTransform;
+    [SerializeField] private Quaternion _baloonRotation = Quaternion.identity;
+    [SerializeField] private ScoreFeedback _scoreFeedback;
 
-    void Start()
+    [Header("UI")]
+    [SerializeField] private GameObject _mainPanel;
+    [SerializeField] private GameObject _freeplayPanel;
+    [SerializeField] private GameObject _activeGamePanel;
+    [SerializeField] private GameObject _resultsPanel;
+    [SerializeField] private TextMeshProUGUI _highscoreText;
+    [SerializeField] private TextMeshProUGUI _dartsRemainingText;
+    [SerializeField] private TextMeshProUGUI _activeScoreText;
+    [SerializeField] private TextMeshProUGUI _resultsScoreText;
+    [SerializeField] private TextMeshProUGUI _resultsMessageText;
+    [SerializeField] private Button _spawnDartButton;
+
+    private bool _gameInProgress = false;
+    private int _highScore = 0;
+
+    private void Start()
     {
         PopulateBalloons();
-        ResetGame();
     }
 
     private void PopulateBalloons()
@@ -30,62 +47,78 @@ public class BalloonPopGame : MonoBehaviour
 
         foreach (var item in _virtualGrid.GetGridPoints())
         {
-            var g = Instantiate(_balloonPrefab, _baloonGridTransform);
-            g.transform.localPosition = item;
-            g.transform.localRotation = _baloonRotation;
-            _balloonList.Add(g.GetComponent<Balloon>());
+            GameObject gameObject = Instantiate(_balloonPrefab, _baloonGridTransform);
+            gameObject.transform.localPosition = item;
+            gameObject.transform.localRotation = _baloonRotation;
+            Balloon balloon = gameObject.GetComponent<Balloon>();
+            _balloonList.Add(balloon);
+            balloon.OnBalloonPop += HandleBalloonPopped;
         }
     }
 
-    void ResetGame()
+    private void OnDestroy()
     {
-        ClearGrid();
-        PopulateGrid();
-        score = 0;
-        dartsRemaining = _startingDarts;
-        UpdateUI();
-    }
-
-    void Update()
-    {
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    ThrowDart();
-        //}
-    }
-
-    void ThrowDart()
-    {
-        if (dartsRemaining > 0)
+        foreach (var item in _balloonList)
         {
-            // Logic for throwing a dart
-            dartsRemaining--;
-            UpdateUI();
+            item.OnBalloonPop -= HandleBalloonPopped;
         }
     }
 
-    void ClearGrid()
+    public void NewGame()
     {
-        // Logic to clear the grid of balloons
+        _dartSpawner.RemoveAllDarts();
+        ResetBalloons();
+        _score = 0;
+        _dartsRemaining = _startingDarts;
+        _gameInProgress = true;
+        _spawnDartButton.interactable = true;
+        _activeScoreText.text = $"Score: {_score}";
+        _dartsRemainingText.text = $"Darts Remaining: {_dartsRemaining}";
     }
 
-    void PopulateGrid()
+    public void EndGame()
     {
-        // Logic to populate the grid with balloons
+        _gameInProgress = false;
+        _resultsScoreText.text = $"You Scored: {_score}";
+        _resultsMessageText.text = _scoreFeedback.ProvideFeedback(_score);
+        UpdateHighScore(_score);
     }
 
-    void UpdateUI()
+    private void UpdateHighScore(int score)
     {
-        // Update the UI elements for score and darts remaining
-    }
-
-    public void BalloonPopped(bool givesExtraDart)
-    {
-        score++;
-        if (givesExtraDart)
+        if (_highScore < score)
         {
-            //dartsRemaining++;
+            _highscoreText.text = $"Best Score: {score}";
         }
-        UpdateUI();
+    }
+
+    public void SpawnDart()
+    {
+        if (_dartsRemaining > 0)
+        {
+            _dartsRemaining--;
+            _dartSpawner.SpawnDart();
+            _dartsRemainingText.text = $"Darts Remaining: {_dartsRemaining}";
+
+            if (_dartsRemaining <= 0)
+            {
+                _spawnDartButton.interactable = false;
+            }
+        }
+    }
+
+    public void ResetBalloons()
+    {
+        foreach (var item in _balloonList)
+        {
+            item.ResetBalloon();
+        }
+    }
+
+    public void HandleBalloonPopped()
+    {
+        if (!_gameInProgress) { return; }
+        _score++;
+        _activeScoreText.text = $"Score: {_score}";
     }
 }

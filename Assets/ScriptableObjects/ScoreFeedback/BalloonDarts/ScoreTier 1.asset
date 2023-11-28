@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25efb2bb177848643bd9eeb0aead41fc, type: 3}
+  m_Name: ScoreTier 1
+  m_EditorClassIdentifier: 
+  minimumScore: 0
+  messages:
+  - Looks like the balloons got lucky this time! Give it another shot and show them
+    who's boss!
+  - Every master starts as a beginner. Grab those darts and pop those balloons!
+  - The fair is full of surprises, and so is this game! Try again, and you might
+    just surprise yourself.
+  - Not a single pop? Those balloons are trickier than they look. Aim carefully,
+    and let's pop some on your next throw!
+  - It's all in the wrist and a bit of fairground magic! Relax, focus, and let's
+    pop some balloons on your next try.
