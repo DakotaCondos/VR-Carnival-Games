@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f5a9ec6a608e5e0428c377ec13e9dcb0, type: 2}
   _balloonMaterial: {fileID: 2100000, guid: 79db18d12a6222640acc821f9c01a53a, type: 2}
   _enablePopWhileGrabbed: 1
+  _balloonPopVolume: 0.75
 --- !u!198 &3617800382945315861
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

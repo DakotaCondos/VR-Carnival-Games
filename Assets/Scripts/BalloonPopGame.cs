@@ -11,7 +11,7 @@ public class BalloonPopGame : MonoBehaviour
     [SerializeField] private int _startingDarts = 10;
     [SerializeField] private int _score = 0;
     [SerializeField] private int _dartsRemaining;
-    [SerializeField] private DartSpawner _dartSpawner;
+    [SerializeField] private ItemSpawner _dartSpawner;
     [SerializeField] private List<Balloon> _balloonList = new();
     [SerializeField] private VirtualGrid _virtualGrid;
     [SerializeField] private Transform _baloonGridTransform;
@@ -19,10 +19,6 @@ public class BalloonPopGame : MonoBehaviour
     [SerializeField] private ScoreFeedback _scoreFeedback;
 
     [Header("UI")]
-    [SerializeField] private GameObject _mainPanel;
-    [SerializeField] private GameObject _freeplayPanel;
-    [SerializeField] private GameObject _activeGamePanel;
-    [SerializeField] private GameObject _resultsPanel;
     [SerializeField] private TextMeshProUGUI _highscoreText;
     [SerializeField] private TextMeshProUGUI _dartsRemainingText;
     [SerializeField] private TextMeshProUGUI _activeScoreText;
@@ -66,7 +62,7 @@ public class BalloonPopGame : MonoBehaviour
 
     public void NewGame()
     {
-        _dartSpawner.RemoveAllDarts();
+        _dartSpawner.RemoveAllSpawnedItems();
         ResetBalloons();
         _score = 0;
         _dartsRemaining = _startingDarts;
@@ -97,7 +93,7 @@ public class BalloonPopGame : MonoBehaviour
         if (_dartsRemaining > 0)
         {
             _dartsRemaining--;
-            _dartSpawner.SpawnDart();
+            _dartSpawner.SpawnItem();
             _dartsRemainingText.text = $"Darts Remaining: {_dartsRemaining}";
 
             if (_dartsRemaining <= 0)
