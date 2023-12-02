@@ -197,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ed79ca173e25e4eb57a5ffef65f69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impactSound: {fileID: 8300000, guid: 4cfb2aae892bbb14ba8e4d80f497a700, type: 3}
+  _metalHit: {fileID: 8300000, guid: 4cfb2aae892bbb14ba8e4d80f497a700, type: 3}
+  _softImpact: {fileID: 8300000, guid: c26d2f06cd407024eaa402c8be0f9e4e, type: 3}
 --- !u!1 &3486868092518508141
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class PlaceableDetection : MonoBehaviour
     private Quaternion initialRotation;
     public bool isDisplaced = false;
 
+    public float ResetDuration { get => resetDuration; }
+
     public event Action OnDisplaced;
 
     void Start()
@@ -77,9 +79,9 @@ public class PlaceableDetection : MonoBehaviour
             {
                 optionalRigidbody.isKinematic = false; // Re-enable Rigidbody physics
             }
+            isDisplaced = false;
         });
 
         transform.DORotateQuaternion(initialRotation, resetDuration).SetEase(resetEase);
-        isDisplaced = false;
     }
 }

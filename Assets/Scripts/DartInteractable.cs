@@ -95,7 +95,7 @@ public class DartInteractable : XRGrabInteractable
         if (gameObject.TryGetComponent(out SharedAudioEffects effect))
         {
             //play specific sound
-            if (effect.ImpactSound != null) { clip = effect.ImpactSound; }
+            if (effect.MetalHit != null) { clip = effect.MetalHit; }
         }
 
         PlaySound(clip, true);

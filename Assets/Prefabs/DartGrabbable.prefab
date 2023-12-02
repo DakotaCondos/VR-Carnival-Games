@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7550785359735055789}
   - component: {fileID: 9054148063047161215}
   - component: {fileID: 7485705996296296365}
+  - component: {fileID: 1063593110790225774}
   m_Layer: 0
   m_Name: DartGrabbable
   m_TagString: Untagged
@@ -281,7 +282,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9043340638737536198}
   serializedVersion: 4
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -432,6 +433,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1063593110790225774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043340638737536198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa4de158aba16742a0ad3933c8ab1be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _priority: 1
 --- !u!1 &9049071357337851476
 GameObject:
   m_ObjectHideFlags: 0

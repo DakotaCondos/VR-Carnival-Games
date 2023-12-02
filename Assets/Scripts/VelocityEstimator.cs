@@ -24,6 +24,8 @@ public class VelocityEstimator : MonoBehaviour
     private Vector3[] velocitySamples;
     private Vector3[] angularVelocitySamples;
 
+    public Coroutine Routine { get => routine; }
+
 
     //-------------------------------------------------
     public void BeginEstimatingVelocity()
@@ -37,9 +39,9 @@ public class VelocityEstimator : MonoBehaviour
     //-------------------------------------------------
     public void FinishEstimatingVelocity()
     {
-        if (routine != null)
+        if (Routine != null)
         {
-            StopCoroutine(routine);
+            StopCoroutine(Routine);
             routine = null;
         }
     }
