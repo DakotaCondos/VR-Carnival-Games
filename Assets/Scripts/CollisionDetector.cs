@@ -13,7 +13,7 @@ public class CollisionDetector : MonoBehaviour
             ContactPoint firstContact = collision.contacts[0];
             Vector3 firstContactPoint = firstContact.point;
             Vector3 impulse = firstContact.impulse;
-            Vector3 directionToContactPoint = (firstContactPoint - transform.position).normalized;
+            Vector3 directionToContactPoint = (firstContactPoint - transform.position);
 
             // Create a new CollisionData object
             CollisionData collisionData = new CollisionData(firstContactPoint, directionToContactPoint, impulse, collision.collider);

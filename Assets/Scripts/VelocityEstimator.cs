@@ -17,6 +17,9 @@ public class VelocityEstimator : MonoBehaviour
     [Tooltip("How many frames to average over for computing angular velocity")]
     public int angularVelocityAverageFrames = 11;
 
+    [Tooltip("Transform used to calculate velocity (Defaults to attached GameObject)")]
+    public Transform targetTransform = null;
+
     public bool estimateOnAwake = false;
 
     private Coroutine routine;
@@ -112,6 +115,11 @@ public class VelocityEstimator : MonoBehaviour
         velocitySamples = new Vector3[velocityAverageFrames];
         angularVelocitySamples = new Vector3[angularVelocityAverageFrames];
 
+        if (targetTransform == null)
+        {
+            targetTransform = transform;
+        }
+
         if (estimateOnAwake)
         {
             BeginEstimatingVelocity();
@@ -124,8 +132,8 @@ public class VelocityEstimator : MonoBehaviour
     {
         sampleCount = 0;
 
-        Vector3 previousPosition = transform.position;
-        Quaternion previousRotation = transform.rotation;
+        Vector3 previousPosition = targetTransform.position;
+        Quaternion previousRotation = targetTransform.rotation;
         while (true)
         {
             yield return new WaitForEndOfFrame();
@@ -137,10 +145,10 @@ public class VelocityEstimator : MonoBehaviour
             sampleCount++;
 
             // Estimate linear velocity
-            velocitySamples[v] = velocityFactor * (transform.position - previousPosition);
+            velocitySamples[v] = velocityFactor * (targetTransform.position - previousPosition);
 
             // Estimate angular velocity
-            Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(previousRotation);
+            Quaternion deltaRotation = targetTransform.rotation * Quaternion.Inverse(previousRotation);
 
             float theta = 2.0f * Mathf.Acos(Mathf.Clamp(deltaRotation.w, -1.0f, 1.0f));
             if (theta > Mathf.PI)
@@ -156,8 +164,8 @@ public class VelocityEstimator : MonoBehaviour
 
             angularVelocitySamples[w] = angularVelocity;
 
-            previousPosition = transform.position;
-            previousRotation = transform.rotation;
+            previousPosition = targetTransform.position;
+            previousRotation = targetTransform.rotation;
         }
     }
 }
