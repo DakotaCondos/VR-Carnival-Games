@@ -1,6 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum SharedAudioEffectsType
+{
+    MetalHit,
+    SoftImpact,
+    HardImpact
+}
 
 public class SharedAudioEffects : MonoBehaviour
 {
@@ -10,5 +15,17 @@ public class SharedAudioEffects : MonoBehaviour
     [SerializeField] private AudioClip _softImpact;
     public AudioClip HardImpact { get => _hardImpact; }
     [SerializeField] private AudioClip _hardImpact;
+
+    public AudioClip GetAudioEffectType(SharedAudioEffectsType effectType)
+    {
+        return effectType switch
+        {
+            SharedAudioEffectsType.MetalHit => MetalHit,
+            SharedAudioEffectsType.SoftImpact => SoftImpact,
+            SharedAudioEffectsType.HardImpact => HardImpact,
+            _ => null,
+        };
+    }
+
 
 }

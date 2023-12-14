@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _metalHit: {fileID: 8300000, guid: c70156245647c49459fc27f841d737d0, type: 3}
-  _softImpact: {fileID: 8300000, guid: efda8b68719b08d42bafac7bda9f3a1e, type: 3}
+  _softImpact: {fileID: 8300000, guid: fd7f2e7483081ef4d87cd4be2fcd1ba7, type: 3}
   _hardImpact: {fileID: 8300000, guid: 908caa58df05f2c4fb96bb6bd16d1d78, type: 3}
 --- !u!82 &5483839637486616860
 AudioSource:
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
+  targetTransform: {fileID: 0}
   estimateOnAwake: 1
 --- !u!114 &5594099592896746886
 MonoBehaviour:

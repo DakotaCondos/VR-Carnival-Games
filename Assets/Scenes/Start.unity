@@ -2451,6 +2451,7 @@ GameObject:
   - component: {fileID: 390932088}
   - component: {fileID: 390932086}
   - component: {fileID: 390932090}
+  - component: {fileID: 390932091}
   m_Layer: 0
   m_Name: LaunchSphere
   m_TagString: Untagged
@@ -2557,6 +2558,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &390932091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390932084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ed79ca173e25e4eb57a5ffef65f69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _metalHit: {fileID: 0}
+  _softImpact: {fileID: 0}
+  _hardImpact: {fileID: 0}
 --- !u!1001 &395791099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12243,7 +12259,6 @@ MonoBehaviour:
   _maxImpartedForceHeight: 18
   _launchDirectionScalar: 7.5
   _launchHeightScalar: 10
-  _debugCollisionData: 0
 --- !u!1 &2130551271
 GameObject:
   m_ObjectHideFlags: 0
@@ -13801,6 +13816,7 @@ GameObject:
   - component: {fileID: 3610442040826755143}
   - component: {fileID: 6949454220283091296}
   - component: {fileID: 6949454220283091297}
+  - component: {fileID: 6949454220283091298}
   m_Layer: 0
   m_Name: ToyHammerGrabbable
   m_TagString: Untagged
@@ -17875,6 +17891,25 @@ CapsuleCollider:
   m_Height: 0.39452392
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0.845}
+--- !u!114 &6949454220283091298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133393331194129932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6da4244abbb3442a8ba3325f0f63ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitSound: {fileID: 8300000, guid: 6ac13836a7e17d2418701b67126dc119, type: 3}
+  _minVelocityAudio: 2
+  _maxVelocityAudio: 10
+  _defaultAudioVolume: 0.5
+  _effectType: 1
+  _alwaysPlayHitSound: 1
+  _specificCollider: {fileID: 6949454220283091297}
 --- !u!114 &6962680225750786504
 MonoBehaviour:
   m_ObjectHideFlags: 0
