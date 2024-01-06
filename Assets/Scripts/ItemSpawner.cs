@@ -22,6 +22,13 @@ public class ItemSpawner : MonoBehaviour
         _spawnables.Add(item);
     }
 
+    public GameObject SpawnAndReturnItem()
+    {
+        var item = Instantiate(_itemPrefab, _instantiateLocation.position, _instantiateLocation.rotation);
+        _spawnables.Add(item);
+        return item;
+    }
+
     public void RemoveAllSpawnedItems()
     {
         foreach (var item in _spawnables)
