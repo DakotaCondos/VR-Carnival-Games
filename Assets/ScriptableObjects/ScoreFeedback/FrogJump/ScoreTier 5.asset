@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25efb2bb177848643bd9eeb0aead41fc, type: 3}
+  m_Name: ScoreTier 5
+  m_EditorClassIdentifier: 
+  minimumScore: 8
+  messages:
+  - "Outstanding! You\u2019re a frog-jumping champion! Almost a perfect score!"
+  - Phenomenal! Your accuracy is amazing. The frogs are in good hands with you!
+  - Top-tier frog jumper! You've practically aced this game. Well done!
+  - Incredible! You have the magic touch with these frogs. Great job!
+  - Perfection! You've shown incredible skill at frog jumping. Congratulations!

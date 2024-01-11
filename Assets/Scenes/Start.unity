@@ -779,7 +779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd9f696bc7caf1418af6bbcdcc00d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTiers: []
+  scoreTiers:
+  - {fileID: 11400000, guid: bf0338ee649c8664f9d576440ddf28e4, type: 2}
+  - {fileID: 11400000, guid: 376a28715ef46bb41ae53aeb07d1a6e0, type: 2}
+  - {fileID: 11400000, guid: e53470bca7380924ab415e525b8a8794, type: 2}
+  - {fileID: 11400000, guid: 1390ede56d0eb53459d248921c34fc40, type: 2}
+  - {fileID: 11400000, guid: 348a47f21aff26945a4493d1f93fd9b4, type: 2}
+  - {fileID: 11400000, guid: 856d5ba680db2ce4b867195510e720c9, type: 2}
+  - {fileID: 11400000, guid: 3be934d75a897354fabb67b292341cee, type: 2}
 --- !u!1 &189814743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328669334}
   - component: {fileID: 328669335}
+  - component: {fileID: 328669336}
   m_Layer: 0
   m_Name: FrogJumpGame
   m_TagString: Untagged
@@ -2126,7 +2134,7 @@ MonoBehaviour:
   _startingItems: 5
   _score: 0
   _itemsRemaining: 0
-  _scoreFeedback: {fileID: 0}
+  _scoreFeedback: {fileID: 328669336}
   impactLauncher: {fileID: 1764078989}
   distanceScalar: 5
   jumpHeightScalar: 5
@@ -2142,6 +2150,25 @@ MonoBehaviour:
   _resultsScoreText: {fileID: 584228978}
   _resultsMessageText: {fileID: 1993967623}
   _spawnItemButton: {fileID: 2065239773}
+--- !u!114 &328669336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328669333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd9f696bc7caf1418af6bbcdcc00d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTiers:
+  - {fileID: 11400000, guid: 7d5835fe40467054fa7425a9d7b85a6f, type: 2}
+  - {fileID: 11400000, guid: 65d5ece230c60bc428780474447a7afa, type: 2}
+  - {fileID: 11400000, guid: bcd589b5c22f0c04d94e74e8e0528c37, type: 2}
+  - {fileID: 11400000, guid: ebfd75a4462d9084990a84765aa0f859, type: 2}
+  - {fileID: 11400000, guid: c0838fbb93c0b3745a3189f4e1f0ca01, type: 2}
+  - {fileID: 11400000, guid: 92f9f7270bcfe4341ace5a236c4f2edc, type: 2}
 --- !u!1 &351302895
 GameObject:
   m_ObjectHideFlags: 0
@@ -27271,7 +27298,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd9f696bc7caf1418af6bbcdcc00d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTiers: []
+  scoreTiers:
+  - {fileID: 11400000, guid: a5b951754d3ac7646917c207b2d7e6c8, type: 2}
+  - {fileID: 11400000, guid: 1bd22db1dca2d5a488e930a38bc8ae16, type: 2}
+  - {fileID: 11400000, guid: a6e4cf2e0122a924c8358ce36f141cf3, type: 2}
+  - {fileID: 11400000, guid: b02b8d9bf297be24f8f93ea7b80f2752, type: 2}
+  - {fileID: 11400000, guid: ae6855cd45c946a40a01222803de28e5, type: 2}
+  - {fileID: 11400000, guid: e67c795af5583e549886360d1f5cf619, type: 2}
+  - {fileID: 11400000, guid: 158d18d5cd48816409fdd800c706fc4d, type: 2}
 --- !u!114 &1539279118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6746773653385374585, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}

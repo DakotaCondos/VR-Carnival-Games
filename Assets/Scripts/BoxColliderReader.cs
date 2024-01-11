@@ -58,19 +58,8 @@ public class BoxColliderReader : MonoBehaviour, IColliderReader
             }
         }
 
-        DebugPrintmsg();
-
         _colliderGameObjects.Clear();
         return totalColliding;
     }
 
-    private void DebugPrintmsg()
-    {
-        StringBuilder sb = new();
-        foreach (var item in _colliderGameObjects)
-        {
-            sb.AppendLine(item.name);
-        }
-        print(sb);
-    }
 }

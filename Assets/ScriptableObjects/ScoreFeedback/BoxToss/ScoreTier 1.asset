@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25efb2bb177848643bd9eeb0aead41fc, type: 3}
+  m_Name: ScoreTier 1
+  m_EditorClassIdentifier: 
+  minimumScore: -1
+  messages:
+  - Looks like luck wasn't on your side this time. Give it another roll and see what
+    happens!
+  - That's the game of chance for you! Try again, and you might hit the jackpot!
+  - Sometimes, the balls just don't bounce our way. Shake it off and try again!
+  - A bit of a tough round, but that's all part of the fun. Roll on for a better
+    score!
+  - The game of luck is full of surprises. Roll again and see what fortune brings!

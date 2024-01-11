@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25efb2bb177848643bd9eeb0aead41fc, type: 3}
+  m_Name: ScoreTier 6
+  m_EditorClassIdentifier: 
+  minimumScore: 5
+  messages:
+  - Amazing! Just one bottle left. You're a bottle-tossing pro!
+  - So close to a perfect score! Only one bottle stood in your way. Great job!
+  - Five bottles down! You've got serious skills. Next time, it's all six!
+  - Incredible accuracy! You almost had them all. Try for a full sweep next round!
+  - One bottle away from perfection! You've got what it takes to clear them all.
