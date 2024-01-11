@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointValue: 1
+  _canScoreMultiple: 1
   _useGUI: 1
   _pointText: {fileID: 1095593577101191303}
 --- !u!114 &-6176922693001061091
@@ -227,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 6055251398561673516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,8 +253,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 0.2, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7000002, y: 0.64216655, z: 1.7000002}
+  m_Center: {x: 0, y: 0.071083106, z: 0}
 --- !u!1 &7750070995404513123
 GameObject:
   m_ObjectHideFlags: 0

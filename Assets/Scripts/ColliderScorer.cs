@@ -7,6 +7,7 @@ public class ColliderScorer : MonoBehaviour
 {
     [Header("PointValue")]
     [SerializeField] private int _pointValue = 1;
+    [SerializeField] private bool _canScoreMultiple = false;
 
     [Header("GUI")]
     [SerializeField] private bool _useGUI = true;
@@ -49,7 +50,8 @@ public class ColliderScorer : MonoBehaviour
     {
         if (_colliderReader.IsColliding())
         {
-            return _pointValue;
+            int score = _canScoreMultiple ? _pointValue * _colliderReader.TotalColliding() : _pointValue;
+            return score;
         }
         else return 0;
     }

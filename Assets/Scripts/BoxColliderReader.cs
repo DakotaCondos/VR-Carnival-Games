@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class BoxColliderReader : MonoBehaviour, IColliderReader
@@ -7,6 +8,7 @@ public class BoxColliderReader : MonoBehaviour, IColliderReader
     [SerializeField] private BoxCollider _boxCollider;
     [SerializeField] List<Collider> _ignoreableColliders = new();
     private readonly Collider[] _overlapResults = new Collider[50]; // Adjust the size as needed
+    private List<GameObject> _colliderGameObjects = new();
     public bool IsColliding()
     {
         // Calculate the center and size of the box collider in world space
@@ -46,12 +48,29 @@ public class BoxColliderReader : MonoBehaviour, IColliderReader
         int totalColliding = 0;
         for (int i = 0; i < numColliders; i++)
         {
-            if (_overlapResults[i] != _boxCollider)
+            if (_overlapResults[i] != _boxCollider && !_ignoreableColliders.Contains(_overlapResults[i]))
             {
-                totalColliding++;
+                if (!_colliderGameObjects.Contains(_overlapResults[i].gameObject))
+                {
+                    _colliderGameObjects.Add(_overlapResults[i].gameObject);
+                    totalColliding++;
+                }
             }
         }
 
+        DebugPrintmsg();
+
+        _colliderGameObjects.Clear();
         return totalColliding;
+    }
+
+    private void DebugPrintmsg()
+    {
+        StringBuilder sb = new();
+        foreach (var item in _colliderGameObjects)
+        {
+            sb.AppendLine(item.name);
+        }
+        print(sb);
     }
 }
