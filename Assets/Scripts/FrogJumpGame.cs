@@ -17,6 +17,8 @@ public class FrogJumpGame : MonoBehaviour
     [SerializeField] private float distanceScalar = 1;
     [SerializeField] private float jumpHeightScalar = 1;
 
+    [SerializeField] List<ColliderScorer> scorerList = new();
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _highscoreText;
     [SerializeField] private TextMeshProUGUI _itemsRemainingText;
@@ -53,10 +55,20 @@ public class FrogJumpGame : MonoBehaviour
     public void EndGame()
     {
         _gameInProgress = false;
+        DetermineScore();
         _resultsScoreText.text = $"You Scored: {_score}";
         _resultsMessageText.text = _scoreFeedback.ProvideFeedback(_score);
         UpdateHighScore(_score);
     }
+
+    private void DetermineScore()
+    {
+        foreach (ColliderScorer item in scorerList)
+        {
+            _score += item.GetScore();
+        }
+    }
+
     private void UpdateHighScore(int score)
     {
         if (_highScore < score)
@@ -65,12 +77,6 @@ public class FrogJumpGame : MonoBehaviour
         }
     }
 
-    public void ScorePoint()
-    {
-        if (!_gameInProgress) { return; }
-        _score++;
-        _activeScoreText.text = $"Score {_score}";
-    }
 
     public void SpawnItem()
     {

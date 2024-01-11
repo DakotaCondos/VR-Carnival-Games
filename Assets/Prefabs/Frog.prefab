@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8433326143649201414}
   - component: {fileID: 2042329613518565947}
   - component: {fileID: 4915361136200751844}
+  - component: {fileID: 6301190179011502669}
   m_Layer: 0
   m_Name: Frog
   m_TagString: Untagged
@@ -237,3 +238,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6301190179011502669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154222850007811251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ed79ca173e25e4eb57a5ffef65f69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _metalHit: {fileID: 8300000, guid: 12eb626e4e59ea34abdea5221a7cd780, type: 3}
+  _softImpact: {fileID: 8300000, guid: 12eb626e4e59ea34abdea5221a7cd780, type: 3}
+  _hardImpact: {fileID: 8300000, guid: 12eb626e4e59ea34abdea5221a7cd780, type: 3}

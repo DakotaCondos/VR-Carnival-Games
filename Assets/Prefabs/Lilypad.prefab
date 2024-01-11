@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 2699962689395002592}
   - component: {fileID: 2121050225203988360}
   - component: {fileID: 7772017481179139741}
+  - component: {fileID: -6176922693001061091}
   m_Layer: 0
   m_Name: Lilypad
   m_TagString: Untagged
@@ -168,6 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxCollider: {fileID: 2112978666196545660}
+  _ignoreableColliders:
+  - {fileID: 2699962689395002592}
 --- !u!114 &7772017481179139741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +186,21 @@ MonoBehaviour:
   _pointValue: 1
   _useGUI: 1
   _pointText: {fileID: 1095593577101191303}
+--- !u!114 &-6176922693001061091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184738770496968744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ed79ca173e25e4eb57a5ffef65f69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _metalHit: {fileID: 8300000, guid: 402de7442a494dc489ddf528ebddeb3f, type: 3}
+  _softImpact: {fileID: 8300000, guid: c401682a463b2ca4b80bc93ff6a697cd, type: 3}
+  _hardImpact: {fileID: 8300000, guid: c401682a463b2ca4b80bc93ff6a697cd, type: 3}
 --- !u!1 &6055251398561673516
 GameObject:
   m_ObjectHideFlags: 0

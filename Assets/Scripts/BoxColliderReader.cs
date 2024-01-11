@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoxColliderReader : MonoBehaviour, IColliderReader
 {
     [SerializeField] private BoxCollider _boxCollider;
+    [SerializeField] List<Collider> _ignoreableColliders = new();
     private readonly Collider[] _overlapResults = new Collider[50]; // Adjust the size as needed
     public bool IsColliding()
     {
@@ -20,7 +21,7 @@ public class BoxColliderReader : MonoBehaviour, IColliderReader
 
         for (int i = 0; i < numColliders; i++)
         {
-            if (_overlapResults[i] != _boxCollider)
+            if (_overlapResults[i] != _boxCollider && !_ignoreableColliders.Contains(_overlapResults[i]))
             {
                 return true; // There is at least one collider overlapping
             }

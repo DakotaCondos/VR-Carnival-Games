@@ -31,6 +31,12 @@ public class CollisionAudio : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //check for override script
+        if (collision.gameObject.TryGetComponent(out CollisionAudioOverride collisionAudioOverride))
+        {
+            if (collisionAudioOverride.DoesIgnoreAudio) { return; }
+        }
+
         // specific collider guard statement
         if (_specificCollider != null)
         {
