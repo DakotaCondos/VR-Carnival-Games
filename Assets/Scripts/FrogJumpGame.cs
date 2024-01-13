@@ -16,6 +16,10 @@ public class FrogJumpGame : MonoBehaviour
     [SerializeField] private ImpactLauncher impactLauncher;
     [SerializeField] private float distanceScalar = 1;
     [SerializeField] private float jumpHeightScalar = 1;
+    [SerializeField] private AudioClip frogClip;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private float frogJumpVolume = 1;
+
 
     [SerializeField] List<ColliderScorer> scorerList = new();
 
@@ -115,5 +119,7 @@ public class FrogJumpGame : MonoBehaviour
 
         rigidbody.AddForce(direction * distanceFraction * distanceScalar, ForceMode.Impulse);
         rigidbody.AddForce(Vector3.up * jumpHeightScalar, ForceMode.Impulse);
+
+        audioSource.PlayOneShot(frogClip, frogJumpVolume);
     }
 }

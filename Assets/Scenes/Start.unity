@@ -1235,6 +1235,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721561663363923034, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_text
+      value: 'Baseballs remaining: xx'
+      objectReference: {fileID: 0}
     - target: {fileID: 2514306569312604877, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1266,6 +1270,16 @@ PrefabInstance:
     - target: {fileID: 2522667187659750878, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771099129570107533, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_text
+      value: 'Rules:
+
+        Throw the baseballs from behind the counter and knock
+        down all the milk bottles. Knock them all over to win!
+
+
+        Good Luck!'
       objectReference: {fileID: 0}
     - target: {fileID: 3788582878872974122, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1359,6 +1373,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4379935490849179662, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4397003688203979383, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1375,9 +1393,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4438486715385413051, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_text
+      value: Remove Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 4464038509656722025, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_text
-      value: Spawn Ball
+      value: Spawn Baseball
       objectReference: {fileID: 0}
     - target: {fileID: 4851196519128563199, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1678,6 +1700,14 @@ PrefabInstance:
     - target: {fileID: 8660815466814950701, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705882279662902362, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_text
+      value: Spawn Baseball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734534936781779785, guid: 3e9d3fe63d2099d4e9242974ff908f75, type: 3}
+      propertyPath: m_text
+      value: Reset Bottles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2459,6 +2489,7 @@ GameObject:
   - component: {fileID: 328669334}
   - component: {fileID: 328669335}
   - component: {fileID: 328669336}
+  - component: {fileID: 328669337}
   m_Layer: 0
   m_Name: FrogJumpGame
   m_TagString: Untagged
@@ -2502,8 +2533,11 @@ MonoBehaviour:
   _itemsRemaining: 0
   _scoreFeedback: {fileID: 328669336}
   impactLauncher: {fileID: 1764078989}
-  distanceScalar: 5
+  distanceScalar: 6
   jumpHeightScalar: 5
+  frogClip: {fileID: 8300000, guid: 12eb626e4e59ea34abdea5221a7cd780, type: 3}
+  audioSource: {fileID: 328669337}
+  frogJumpVolume: 1
   scorerList:
   - {fileID: 1088024631}
   - {fileID: 901318302}
@@ -2535,6 +2569,102 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ebfd75a4462d9084990a84765aa0f859, type: 2}
   - {fileID: 11400000, guid: c0838fbb93c0b3745a3189f4e1f0ca01, type: 2}
   - {fileID: 11400000, guid: 92f9f7270bcfe4341ace5a236c4f2edc, type: 2}
+--- !u!82 &328669337
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328669333}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &329159072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31058,6 +31188,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5824580480454786325, guid: 0bf2b72bbd588914398c2a5dae1d8390, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5930835683441022625, guid: 0bf2b72bbd588914398c2a5dae1d8390, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -31552,7 +31686,6 @@ GameObject:
   - component: {fileID: 1764078987}
   - component: {fileID: 1764078986}
   - component: {fileID: 1764078989}
-  - component: {fileID: 1764078990}
   m_Layer: 0
   m_Name: ImpactLauncher
   m_TagString: Untagged
@@ -31663,21 +31796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionFocus: {fileID: 1172666465}
   meshCollider: {fileID: 1764078986}
---- !u!114 &1764078990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764078984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ed79ca173e25e4eb57a5ffef65f69c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _metalHit: {fileID: 0}
-  _softImpact: {fileID: 8300000, guid: c401682a463b2ca4b80bc93ff6a697cd, type: 3}
-  _hardImpact: {fileID: 8300000, guid: 402de7442a494dc489ddf528ebddeb3f, type: 3}
 --- !u!1001 &1765193904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38917,6 +39035,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4726890826251571655, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
+      propertyPath: m_text
+      value: Remove Frogs
+      objectReference: {fileID: 0}
     - target: {fileID: 4976962675907762053, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -38936,6 +39058,10 @@ PrefabInstance:
     - target: {fileID: 5069842778835911495, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -63
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132587128820683855, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
+      propertyPath: m_text
+      value: Frog Hop
       objectReference: {fileID: 0}
     - target: {fileID: 5229283905169317718, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -39061,6 +39187,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6657222170007496091, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
+      propertyPath: m_text
+      value: Spawn Frog
+      objectReference: {fileID: 0}
     - target: {fileID: 6997432650607860192, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -39091,6 +39221,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7003768376458140305, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319457999992608080, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7382978025244654325, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
@@ -39120,6 +39254,10 @@ PrefabInstance:
     - target: {fileID: 7382978025244654325, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034130696445834340, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
+      propertyPath: m_text
+      value: Spawn Frog
       objectReference: {fileID: 0}
     - target: {fileID: 8421441878461933384, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -39199,11 +39337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8733428269699636298, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.73
+      value: -2.021
       objectReference: {fileID: 0}
     - target: {fileID: 8733428269699636298, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.62
+      value: 2.408
       objectReference: {fileID: 0}
     - target: {fileID: 8733428269699636298, guid: 0977f05874bc77042b1b396d7ad778c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
